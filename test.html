@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+<body>
+
+    <div>
+            <div>
+                <button class="btns" >打印</button>
+            </div>
+        <object  id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+            <embed id="LODOP_EM" type="application/x-print-lodop" width=0 height=0 pluginspage="install_lodop32.exe"></embed>
+        </object>
+
+    </div>  
+</body>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="./LodopFuncs.js"></script>
+
+<script>
+    $(function(){
+        $('.btns').click(function(){
+            GlobalPrint()
+        })
+    });
+    function GlobalPrint() {
+        var LODOP=getLodop(document.getElementById('LODOP_OB'),document.getElementById('LODOP_EM'));
+        if(!LODOP){
+            alert('heh')
+        }
+        CreatePrintPage();
+          LODOP.PREVIEW();	
+        //   LODOP.PRINTA(); 	
+          
+
+        // LODOP=getLodop();  
+		// LODOP.PRINT_INIT("这就是个打印");
+		// LODOP.ADD_PRINT_HTM(0,0,"100%","100%",document.documentElement.innerHTML);
+        // LODOP.PRINTA(); 	
+       
+    }
+    function CreatePrintPage() {
+        // LODOP.PRINT_INITA(0,0,800,1600,"打印控件功能演示_Lodop功能_打印条码");
+        // var list = ['54121109707049','54121108469193','54121107993241','54121108793595','54121109449134','54121109449135','54121108283879','54121108774119','54121108734303'];
+        var list = ['54121109707049'];
+
+        for(let i = 0; i < list.length; i++) {
+          
+            // LODOP.ADD_PRINT_HTM(10,20,160,40,"<span>I561.84/6211-16</span>");
+            // LODOP.ADD_PRINT_HTM(140,60,180,54,"<span>上</span>");
+            // LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+            // LODOP.ADD_PRINT_HTM(140,80,180,40,"<span>海</span>");
+            // LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+            // LODOP.ADD_PRINT_HTM(140,100,180,40,"<span>图</span>");
+            // LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+            // LODOP.ADD_PRINT_HTM(140,120,180,40,"<span>书</span>");
+            // LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+            // LODOP.ADD_PRINT_HTM(140,140,180,40,"<span>馆</span>");
+            // LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+      
+            // LODOP.ADD_PRINT_BARCODE(45,1,258,54,"128C",list[i]);
+            //LODOP.SET_PRINT_MODE("PRINT_PAGE_PERCENT","70%");//整页缩放
+            // LODOP.ADD_PRINT_BARCODE(8,10,136,20,"EAN8",list[i]);
+
+            LODOP.ADD_PRINT_HTM(10,8,160,20,"<span>I561.84/6211-16</span>");
+            LODOP.ADD_PRINT_HTM(80,10,40,24,"<span>上</span>");
+            LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+            LODOP.ADD_PRINT_HTM(80,30,20,20,"<span>海</span>");
+            LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+            LODOP.ADD_PRINT_HTM(80,50,20,20,"<span>图</span>");
+            LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+            LODOP.ADD_PRINT_HTM(80,70,20,20,"<span>书</span>");
+            LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+            LODOP.ADD_PRINT_HTM(80,90,20,20,"<span>馆</span>");
+            LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+            LODOP.ADD_PRINT_BARCODE(35,1,158,24,"128C",list[i]);
+            LODOP.SET_PRINT_MODE("PRINT_PAGE_PERCENT","125%");//整页缩放
+            LODOP.NEWPAGE();
+        } 
+
+        LODOP.SET_PRINT_STYLEA(0,"FontSize",36);
+        LODOP.SET_PRINT_STYLEA(0,"ShowBarText",0);//设置是否显示下方的文字
+
+    }
+
+</script>
+
+</html>
