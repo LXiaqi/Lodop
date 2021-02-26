@@ -45,7 +45,7 @@
     function CreatePrintPage() {
         // LODOP.PRINT_INITA(0,0,800,1600,"打印控件功能演示_Lodop功能_打印条码");
         // var list = ['54121109707049','54121108469193','54121107993241','54121108793595','54121109449134','54121109449135','54121108283879','54121108774119','54121108734303'];
-        var list = ['54121109707049'];
+        var list = ['54121108708042','54121109010098','54121109465778'];
 
         for(let i = 0; i < list.length; i++) {
           
@@ -63,26 +63,27 @@
       
             // LODOP.ADD_PRINT_BARCODE(45,1,258,54,"128C",list[i]);
             //LODOP.SET_PRINT_MODE("PRINT_PAGE_PERCENT","70%");//整页缩放
-            // LODOP.ADD_PRINT_BARCODE(8,10,136,20,"EAN8",list[i]);
+            // LODOP.ADD_PRINT_BARCODE(10,24,166,20,"EAN8",list[i]);
 
-            LODOP.ADD_PRINT_HTM(10,8,160,20,"<span>I561.84/6211-16</span>");
-            LODOP.ADD_PRINT_HTM(80,10,40,24,"<span>上</span>");
+            LODOP.ADD_PRINT_HTM(48,62,160,20,"<span>I106.2/3721-3</span>");
+            LODOP.ADD_PRINT_HTM(92,46,40,24,"<span>上</span>");
             LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-            LODOP.ADD_PRINT_HTM(80,30,20,20,"<span>海</span>");
+            LODOP.ADD_PRINT_HTM(92,66,20,20,"<span>海</span>");
             LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-            LODOP.ADD_PRINT_HTM(80,50,20,20,"<span>图</span>");
+            LODOP.ADD_PRINT_HTM(92,86,20,20,"<span>图</span>");
             LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-            LODOP.ADD_PRINT_HTM(80,70,20,20,"<span>书</span>");
+            LODOP.ADD_PRINT_HTM(92,106,20,20,"<span>书</span>");
             LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-            LODOP.ADD_PRINT_HTM(80,90,20,20,"<span>馆</span>");
+            LODOP.ADD_PRINT_HTM(92,126,20,20,"<span>馆</span>");
             LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-            LODOP.ADD_PRINT_BARCODE(35,1,158,24,"128C",list[i]);
-            LODOP.SET_PRINT_MODE("PRINT_PAGE_PERCENT","125%");//整页缩放
+            LODOP.ADD_PRINT_BARCODE(26,24,188,24,"128C",list[i]);
+            LODOP.SET_PRINT_MODE("PRINT_PAGE_PERCENT","110%");//整页缩放
             LODOP.NEWPAGE();
+            LODOP.SET_PRINT_STYLEA(0,"FontSize",36);
+        LODOP.SET_PRINT_STYLEA(0,"ShowBarText",0);//设置是否显示下方的文字
         } 
 
-        LODOP.SET_PRINT_STYLEA(0,"FontSize",36);
-        LODOP.SET_PRINT_STYLEA(0,"ShowBarText",0);//设置是否显示下方的文字
+      
 
     }
 
